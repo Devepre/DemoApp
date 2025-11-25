@@ -1,0 +1,8 @@
+app_identifier("com.demo.DemoApp.paid") # The bundle identifier of your app
+apple_id("bicycle2life@gmail.com") # Your Apple Developer Portal username
+
+itc_team_id("119488698") # App Store Connect Team ID
+team_id("3MKUUZEFBH") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
