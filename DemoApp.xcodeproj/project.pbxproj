@@ -10,12 +10,14 @@
 		8E1B44AA2ED6346B003E8909 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 8E1B44A82ED6346B003E8909 /* Fastfile */; };
 		8E1B44AB2ED6346B003E8909 /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 8E1B44A72ED6346B003E8909 /* Appfile */; };
 		8E1B44AC2ED6346B003E8909 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 8E1B44A92ED6346B003E8909 /* Gemfile */; };
+		8E1B44D22ED63FB2003E8909 /* build-upload-ios.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8E1B44D12ED63FB2003E8909 /* build-upload-ios.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E1B44A72ED6346B003E8909 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		8E1B44A82ED6346B003E8909 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		8E1B44A92ED6346B003E8909 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		8E1B44D12ED63FB2003E8909 /* build-upload-ios.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = "build-upload-ios.yml"; path = ".github/workflows/build-upload-ios.yml"; sourceTree = "<group>"; };
 		8EE62C242ED62881003CB85F /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -42,6 +44,7 @@
 			isa = PBXGroup;
 			children = (
 				8E1B44A72ED6346B003E8909 /* Appfile */,
+				8E1B44D12ED63FB2003E8909 /* build-upload-ios.yml */,
 				8E1B44A82ED6346B003E8909 /* Fastfile */,
 				8E1B44A92ED6346B003E8909 /* Gemfile */,
 				8EE62C262ED62881003CB85F /* DemoApp */,
@@ -122,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E1B44AA2ED6346B003E8909 /* Fastfile in Resources */,
+				8E1B44D22ED63FB2003E8909 /* build-upload-ios.yml in Resources */,
 				8E1B44AB2ED6346B003E8909 /* Appfile in Resources */,
 				8E1B44AC2ED6346B003E8909 /* Gemfile in Resources */,
 			);
