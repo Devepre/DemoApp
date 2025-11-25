@@ -1,20 +1,22 @@
 name: build-ios-app
+
 on:
   push:
 
 jobs:
   build:
     runs-on: macos-latest
-    
+
     steps:
-      - name: Set Match HTTPS auth
-      - run: |
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Match HTTPS authentication
+        run: |
           AUTH_BASE64=$(echo -n "x-access-token:${{ secrets.PAT_TOKEN }}" | base64)
           echo "MATCH_GIT_BASIC_AUTHORIZATION=Basic $AUTH_BASE64" >> $GITHUB_ENV
-    
-      - name: Checkout
-      - uses: actions/checkout@v4
-      - run: fastlane beta
+
+      - name: Run Fastlane
+        run: fastlane beta
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_PRIVATE_KEY: ${{ secrets.MATCH_GIT_PRIVATE_KEY }}
