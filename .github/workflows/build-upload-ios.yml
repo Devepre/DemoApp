@@ -8,30 +8,30 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Select latest Xcode
-        run: |
-          echo "Checking available Xcode versions..."
-          ls /Applications | grep Xcode
+#      - name: Select latest Xcode
+#        run: |
+#          echo "Checking available Xcode versions..."
+#          ls /Applications | grep Xcode
+#
+#          # Pick the highest version
+#          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
+#          echo "Latest Xcode detected: $LATEST_XCODE"
+#
+#          # Switch to that version
+#          SELECTED_PATH="/Applications/$LATEST_XCODE/Contents/Developer"
+#          echo "Switching to: $SELECTED_PATH"
+#          # sudo xcode-select -s "$SELECTED_PATH"
+#          sudo xcode-select -s /Applications/Xcode_26.1.0.app
+#
+#          # Verify
+#          echo "Xcode version now in use:"
+#          xcodebuild -version
+#          xcodebuild -showsdks
 
-          # Pick the highest version
-          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
-          echo "Latest Xcode detected: $LATEST_XCODE"
-
-          # Switch to that version
-          SELECTED_PATH="/Applications/$LATEST_XCODE/Contents/Developer"
-          echo "Switching to: $SELECTED_PATH"
-          # sudo xcode-select -s "$SELECTED_PATH"
-          sudo xcode-select -s /Applications/Xcode_26.1.0.app
-
-          # Verify
-          echo "Xcode version now in use:"
-          xcodebuild -version
-          xcodebuild -showsdks
-
-#      - name: Xcode Select Version
-#        uses: maxim-lobanov/setup-xcode@v1
-#        with:
-#          xcode-version: latest-stable
+      - name: Xcode Select Version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
     
       - name: Checkout source
         uses: actions/checkout@v4
