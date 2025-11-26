@@ -13,21 +13,22 @@ jobs:
           echo "Checking available Xcode versions..."
           ls /Applications | grep Xcode
 
-          # Pick the highest version
-          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
-          echo "Latest Xcode detected: $LATEST_XCODE"
+#          # Pick the highest version
+#          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
+#          echo "Latest Xcode detected: $LATEST_XCODE"
+#
+#          # Switch to that version
+#          SELECTED_PATH="/Applications/$LATEST_XCODE/Contents/Developer"
+#          echo "Switching to: $SELECTED_PATH"
+#          # sudo xcode-select -s "$SELECTED_PATH"
+#          sudo xcode-select -s /Applications/Xcode_26.1.app
+#
+#          # Verify
+#          echo "Xcode version now in use:"
+#          xcodebuild -version
+#          xcodebuild -showsdks
 
-          # Switch to that version
-          SELECTED_PATH="/Applications/$LATEST_XCODE/Contents/Developer"
-          echo "Switching to: $SELECTED_PATH"
-          # sudo xcode-select -s "$SELECTED_PATH"
-          # sudo xcode-select -s /Applications/Xcode_26.1.app
-          xcversion(version: "26.1") # Selects Xcode
-
-          # Verify
-          echo "Xcode version now in use:"
-          xcodebuild -version
-          xcodebuild -showsdks
+        xcversion(version: "26.1") # Selects Xcode 8.1.0
 
 #      - name: Xcode Select Version
 #        uses: maxim-lobanov/setup-xcode@v1
