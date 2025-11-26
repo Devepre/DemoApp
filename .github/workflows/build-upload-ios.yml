@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
+        
       - name: Debug match password
         run: |
           if [ -z "$MATCH_PASSWORD" ]; then
@@ -17,7 +18,9 @@ jobs:
           else
             echo "MATCH_PASSWORD is SET (hidden)"
           fi
-
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          
       - name: Set up Match HTTPS authentication
         run: |
           AUTH_BASE64=$(echo -n "x-access-token:${{ secrets.PAT_TOKEN }}" | base64)
