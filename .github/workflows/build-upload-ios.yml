@@ -13,8 +13,8 @@ jobs:
           echo "Checking available Xcode versions..."
           ls /Applications | grep Xcode
 
-          # Pick the highest version
-          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
+          # Pick the highest numeric version (skip Release_Candidate suffix)
+          LATEST_XCODE=$(ls /Applications | grep Xcode | grep -Eo 'Xcode_[0-9]+\.[0-9]+(\.[0-9]+)?\.app')
           echo "Latest Xcode detected: $LATEST_XCODE"
 
           # Switch to that version

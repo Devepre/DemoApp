@@ -24,6 +24,12 @@ platform :ios do
     match(type: 'development')
     build_app(
         scheme: "DemoApp",
+        export_options: {
+            export: "development",
+            provisioningProfiles: {
+            "com.demo.DemoApp.paid" => "match Development com.demo.DemoApp.paid"
+            }
+        },
         xcargs: "-allowProvisioningUpdates",
         output_directory: "build/"
     )
