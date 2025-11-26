@@ -48,9 +48,9 @@ platform :ios do
     build_app(
         scheme: "DemoApp",
         destination: "generic/platform=iOS",
-        # export_method: "development",
+        export_method: "development",
         export_options: {
-            export: "development",
+            # export: "development",
             provisioningProfiles: {
             "com.demo.DemoApp.paid" => "match Development com.demo.DemoApp.paid"
             }
