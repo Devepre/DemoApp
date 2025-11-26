@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Debug match password
         run: |
-        run: |
           if [ -z "$MATCH_PASSWORD" ]; then
             echo "MATCH_PASSWORD is NOT SET!"
           else
