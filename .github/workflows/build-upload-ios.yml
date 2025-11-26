@@ -8,6 +8,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Debug Xcode Destinations
+        run: |
+          xcodebuild -showdestinations -scheme DemoApp -project DemoApp.xcodeproj
+        
       - name: Select latest Xcode
         run: |
           echo "Checking available Xcode versions..."
