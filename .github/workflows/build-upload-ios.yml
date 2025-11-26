@@ -10,9 +10,21 @@ jobs:
     steps:
       - name: Select latest Xcode
         run: |
+          echo "Checking available Xcode versions..."
+          ls /Applications | grep Xcode
+
+          # Pick the highest version
           LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
-          echo "Using Xcode: $LATEST_XCODE"
-          sudo xcode-select -s "/Applications/$LATEST_XCODE/Contents/Developer"
+          echo "Latest Xcode detected: $LATEST_XCODE"
+
+          # Switch to that version
+          SELECTED_PATH="/Applications/$LATEST_XCODE/Contents/Developer"
+          echo "Switching to: $SELECTED_PATH"
+          sudo xcode-select -s "$SELECTED_PATH"
+
+          # Verify
+          echo "Xcode version now in use:"
+          xcodebuild -version
     
       - name: Checkout source
         uses: actions/checkout@v4
