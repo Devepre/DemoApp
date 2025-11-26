@@ -45,6 +45,7 @@ platform :ios do
     # sync_code_signing
     setup_ci if ENV['CI']
     match(type: 'development')
+    xcversion(version: "26.1") # or any installed version
     build_app(
         scheme: "DemoApp",
         # destination: "generic/platform=iOS",
