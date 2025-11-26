@@ -8,6 +8,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Select latest Xcode
+        run: |
+          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -n 1)
+          echo "Using Xcode: $LATEST_XCODE"
+          sudo xcode-select -s "/Applications/$LATEST_XCODE/Contents/Developer"
+    
       - name: Checkout source
         uses: actions/checkout@v4
         
