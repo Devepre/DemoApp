@@ -16,8 +16,31 @@
 default_platform(:ios)
 
 platform :ios do
+    lane :select_ci_sdk do
+      # Get installed SDKs
+      sdks_output = sh("xcodebuild -showsdks")
+      puts "Available SDKs:\n#{sdks_output}"
+
+      # Extract only numeric iOS SDKs (ignore simulators)
+      numeric_sdks = sdks_output.scan(/iOS (\d+\.\d+)/).flatten
+      puts "Numeric SDKs detected: #{numeric_sdks.join(', ')}"
+
+      if numeric_sdks.empty?
+        UI.user_error!("No numeric iOS SDKs found on this CI runner!")
+      end
+
+      # Pick the latest one
+      latest_sdk = numeric_sdks.map { |v| Gem::Version.new(v) }.max
+      UI.message("✅ Using iOS SDK #{latest_sdk}")
+
+      # Optional: set as environment variable for other lanes
+      ENV["CI_SELECTED_IOS_SDK"] = latest_sdk.to_s
+    end
+
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
+    select_ci_sdk  # Detect the latest installed SDK
     # increment_build_number(xcodeproj: "DemoApp.xcodeproj")
     # sync_code_signing
     setup_ci if ENV['CI']
@@ -25,7 +48,7 @@ platform :ios do
     build_app(
         scheme: "DemoApp",
         destination: "generic/platform=iOS",
-        export_method: "development",
+        #export_method: "development",
         export_options: {
             export: "development",
             provisioningProfiles: {
