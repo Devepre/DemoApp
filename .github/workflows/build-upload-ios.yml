@@ -21,7 +21,8 @@ jobs:
           SELECTED_PATH="/Applications/$LATEST_XCODE/Contents/Developer"
           echo "Switching to: $SELECTED_PATH"
           # sudo xcode-select -s "$SELECTED_PATH"
-          sudo xcode-select -s /Applications/Xcode_26.1.app
+          # sudo xcode-select -s /Applications/Xcode_26.1.app
+          xcversion(version: "26.1") # Selects Xcode
 
           # Verify
           echo "Xcode version now in use:"
