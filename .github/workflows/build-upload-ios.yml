@@ -10,6 +10,14 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
+      - name: Debug match password
+        run: |
+        run: |
+          if [ -z "$MATCH_PASSWORD" ]; then
+            echo "MATCH_PASSWORD is NOT SET!"
+          else
+            echo "MATCH_PASSWORD is SET (hidden)"
+          fi
 
       - name: Set up Match HTTPS authentication
         run: |
