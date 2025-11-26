@@ -37,11 +37,7 @@ jobs:
       - name: Debug Xcode Destinations
         run: |
           xcodebuild -showdestinations -scheme DemoApp -project DemoApp.xcodeproj
-          
-        - name: Debug Build Settings
-          run: |
-            xcodebuild -showBuildSettings -scheme DemoApp -project DemoApp.xcodeproj | grep SUPPORTED_PLATFORMS
-        
+ 
       - name: Debug match password
         run: |
           if [ -z "$MATCH_PASSWORD" ]; then

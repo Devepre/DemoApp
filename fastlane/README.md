@@ -15,6 +15,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
+### ios select_ci_sdk
+
+```sh
+[bundle exec] fastlane ios select_ci_sdk
+```
+
+
+
 ### ios beta
 
 ```sh
